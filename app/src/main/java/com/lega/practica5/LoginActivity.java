@@ -77,14 +77,16 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(name.toString() ==null && name.toString().length()==0 && surname.toString() ==null && surname.toString().length()==0){
-                    Toast.makeText(LoginActivity.this, "Debes Ingresar Usuario y Passord", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Debes Ingresar Usuario y Password", Toast.LENGTH_SHORT).show();
                 }else{
                     if(name.toString().equals(binding.ALUsernameText.getText().toString())){
                         if(surname.toString().equals(binding.ALPasswordText.getText().toString())){
                             Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                            intent.putExtra("name", binding.ALUsernameText.getText().toString());
+                            intent.putExtra("surname", binding.ALPasswordText.getText().toString());
                             startActivity(intent);
                         }else{
-                            Toast.makeText(LoginActivity.this, "Pasword Incorrecto", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Password Incorrecto", Toast.LENGTH_SHORT).show();
                         }
                     }else{
                         Toast.makeText(LoginActivity.this, "Usuario Incorrecto", Toast.LENGTH_SHORT).show();
